@@ -1,3 +1,5 @@
+from unipath import Path
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -41,10 +43,11 @@ USE_L10N = True
 # If you set this to False, Django will not use timezone-aware datetimes.
 USE_TZ = True
 
+PROJECT_ROOT = Path(__file__).ancestor(2)
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = '/home/tzicatl/Aplicaciones/Codigo/HolokinesisLibros/prueba_django_file_browser/media'
+MEDIA_ROOT = PROJECT_ROOT.child('media')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -55,7 +58,7 @@ MEDIA_URL = '/media/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = '/home/tzicatl/Aplicaciones/Codigo/HolokinesisLibros/prueba_django_file_browser/static'
+STATIC_ROOT = PROJECT_ROOT.child('static')
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -67,6 +70,7 @@ STATICFILES_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
 )
+
 
 # List of finder classes that know how to find static files in
 # various locations.
@@ -114,10 +118,12 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Uncomment the next line to enable the admin:
-    'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    'grappelli',
+    'filebrowser',
+    # Uncomment the next line to enable the admin:
+    'django.contrib.admin',
 )
 
 # A sample logging configuration. The only tangible logging

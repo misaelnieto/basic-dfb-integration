@@ -1,0 +1,4 @@
+Django==1.4.2
+Unipath==1.0
+django-filebrowser==3.5.2
+django-grappelli==2.4.4
